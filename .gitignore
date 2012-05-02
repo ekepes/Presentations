@@ -3,7 +3,7 @@ code_drop/*
 *.suo
 *.user
 
-src/logs/*
+logs
 
 bin
 obj
