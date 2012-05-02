@@ -1,0 +1,2 @@
+ALTER DATABASE [$(DBName)] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+EXEC sp_detach_db [$(DBName)], 'true'

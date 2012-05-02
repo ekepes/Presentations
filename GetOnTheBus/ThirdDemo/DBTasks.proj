@@ -1,0 +1,44 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<ProjectBase>$(MSBuildProjectDirectory)</ProjectBase>
+		<ResourcePath>$(ProjectBase)\Database</ResourcePath>
+		<ExecutionWorkingDir>$(ProjectBase)\bin</ExecutionWorkingDir>
+	</PropertyGroup>
+
+	<!-- Add all databases that need to be set up/torn down during the build here: -->
+	<ItemGroup>
+		<TestDatabaseFolder Include="$(ExecutionWorkingDir)" />
+		<TestDatabase Include="One">
+			<DBName>PatientOrderData</DBName>
+			<Source>$(ResourcePath)\PatientOrderData.MDF</Source>
+			<DBFile>$(ExecutionWorkingDir)\PatientOrderData.MDF</DBFile>
+			<LogFile>$(ExecutionWorkingDir)\PatientOrderData_log.LDF</LogFile>
+			<FixUsers>false</FixUsers>
+		</TestDatabase>
+	</ItemGroup>
+	
+	<Target Name="CreateTestDatabases" DependsOnTargets="CopyDatabases">
+		<Exec Command='sqlcmd -E -S .\SQLExpress -i "$(ResourcePath)\AttachAutomatedTestDB.sql" -v DBName="%(TestDatabase.DBName)" -v DBFile="%(TestDatabase.DBFile)"' IgnoreExitCode="false"/>
+		
+		<Exec Command='sqlcmd -E -S .\SQLExpress -i "$(ResourcePath)\PostRestoreScript - Users.sql" -v DBName="%(TestDatabase.DBName)"' IgnoreExitCode="false" Condition=" '%(TestDatabase.FixUsers)'=='true' "/>
+	</Target>	
+	
+	<Target Name="DestroyTestDatabases">
+		<Exec Command='sqlcmd -E -S .\SQLExpress -i "$(ResourcePath)\DetachAutomatedTestDB.sql" -v DBName="%(TestDatabase.DBName)"' IgnoreExitCode="true"/>
+		
+		<Delete Files="%(TestDatabase.DBFile)" />
+		<Delete Files="%(TestDatabase.LogFile)" />
+	</Target>	
+	
+	<Target Name="CopyDatabases">
+		<MakeDir
+            Directories="@(TestDatabaseFolder)"/>
+			
+		<Copy 
+			SourceFiles="%(TestDatabase.Source)"
+			DestinationFiles="%(TestDatabase.DBFile)"
+			/>	
+	</Target>
+
+</Project>
