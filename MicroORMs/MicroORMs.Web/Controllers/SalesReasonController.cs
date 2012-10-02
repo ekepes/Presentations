@@ -71,7 +71,7 @@ namespace MicroORMs.Web.Controllers
                 // Icky, ugly, crap - never put data access code in a controller (unless you're doing a demo)
                 using (var database = GetDatabase())
                 {
-                    database.Save(reason);
+                    database.Insert(reason);
                 }
 
                 return RedirectToAction("Index");
