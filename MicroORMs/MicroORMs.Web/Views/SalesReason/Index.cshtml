@@ -1,22 +1,45 @@
-﻿@using MicroORMs.Web.Models
-@model IEnumerable<SalesReason>
+﻿@model IEnumerable<MicroORMs.Web.Models.SalesReason>
 
 @{
-    ViewBag.Title = "Sales Reason List";
+    ViewBag.Title = "Sales Reason Manager";
 }
 
-<h2>Sales Reason List</h2>
+<h2>Sales Reason Manager</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table>
     <tr>
-        <td>Name</td>
-        <td>Type</td>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReasonType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th></th>
     </tr>
-    @foreach(SalesReason reportLine in Model)
-    {
-        <tr>
-            <td>@reportLine.Name</td>
-            <td>@reportLine.ReasonType</td>
-        </tr>
-    }
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReasonType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SalesReasonId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SalesReasonId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SalesReasonId })
+        </td>
+    </tr>
+}
+
 </table>

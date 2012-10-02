@@ -2,9 +2,11 @@ using System;
 
 namespace MicroORMs.Web.Models
 {
+    [PetaPoco.TableName("Sales.SalesReason")]
+    [PetaPoco.PrimaryKey("SalesReasonID")]
     public class SalesReason
     {
-        public int Id { get; set; }
+        public int SalesReasonId { get; set; }
 
         public string Name { get; set; }
 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using MicroORMs.Web.Models;
 using PetaPoco;
@@ -22,10 +19,28 @@ namespace MicroORMs.Web.Controllers
         private IEnumerable<SalesReason> GetReportLines()
         {
             // Icky, ugly, crap - never put data access code in a controller (unless you're doing a demo)
-            Database database = new Database(ConnectionStrings.Main, "System.Data.SqlClient");
-            var reportLines = database.Fetch<SalesReason>("SELECT * FROM Sales.SalesReason");
- 
-            return reportLines;
+            using (var database = GetDatabase())
+            {
+                var reportLines = database.Fetch<SalesReason>("SELECT * FROM Sales.SalesReason");
+
+                return reportLines;
+            }
+        }
+
+        private Database GetDatabase()
+        {
+            return new Database(ConnectionStrings.Main, "System.Data.SqlClient");
+        }
+
+        private SalesReason GetSalesReason(int id)
+        {
+            // Icky, ugly, crap - never put data access code in a controller (unless you're doing a demo)
+            using (var database = GetDatabase())
+            {
+                var reportLines = database.Single<SalesReason>("WHERE SalesReasonID=@0", id);
+
+                return reportLines;
+            }
         }
 
         //
@@ -33,7 +48,8 @@ namespace MicroORMs.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            SalesReason reason = GetSalesReason(id);
+            return View(reason);
         }
 
         //
@@ -48,11 +64,15 @@ namespace MicroORMs.Web.Controllers
         // POST: /SalesReason/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(SalesReason reason)
         {
             try
             {
-                // TODO: Add insert logic here
+                // Icky, ugly, crap - never put data access code in a controller (unless you're doing a demo)
+                using (var database = GetDatabase())
+                {
+                    database.Save(reason);
+                }
 
                 return RedirectToAction("Index");
             }
@@ -67,19 +87,23 @@ namespace MicroORMs.Web.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            SalesReason reason = GetSalesReason(id);
+            return View(reason);
         }
 
         //
         // POST: /SalesReason/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, SalesReason reason)
         {
             try
             {
-                // TODO: Add update logic here
-
+                // Icky, ugly, crap - never put data access code in a controller (unless you're doing a demo)
+                using (var database = GetDatabase())
+                {
+                    database.Save(reason);
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -93,18 +117,23 @@ namespace MicroORMs.Web.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            SalesReason reason = GetSalesReason(id);
+            return View(reason);
         }
 
         //
         // POST: /SalesReason/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, SalesReason reason)
         {
             try
             {
-                // TODO: Add delete logic here
+                // Icky, ugly, crap - never put data access code in a controller (unless you're doing a demo)
+                using (var database = GetDatabase())
+                {
+                    database.Delete<SalesReason>(id);
+                }
 
                 return RedirectToAction("Index");
             }
