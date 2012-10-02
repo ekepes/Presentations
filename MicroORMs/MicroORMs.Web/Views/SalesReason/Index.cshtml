@@ -1,0 +1,22 @@
+﻿@using MicroORMs.Web.Models
+@model IEnumerable<SalesReason>
+
+@{
+    ViewBag.Title = "Sales Reason List";
+}
+
+<h2>Sales Reason List</h2>
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Type</td>
+    </tr>
+    @foreach(SalesReason reportLine in Model)
+    {
+        <tr>
+            <td>@reportLine.Name</td>
+            <td>@reportLine.ReasonType</td>
+        </tr>
+    }
+</table>
