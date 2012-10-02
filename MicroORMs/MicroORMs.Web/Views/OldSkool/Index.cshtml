@@ -10,7 +10,6 @@
 <table>
     <tr>
         <td>State</td>
-        <td>Year</td>
         <td>Month</td>
         <td>Sales</td>
     </tr>
@@ -18,9 +17,8 @@
     {
         <tr>
             <td>@reportLine.StateCode</td>
-            <td>@reportLine.SalesYear</td>
-            <td>@reportLine.SalesMonth</td>
-            <td>$@reportLine.MonthlySales</td>
+            <td>@reportLine.ReportMonth</td>
+            <td>@reportLine.MonthlySales.ToString("C")</td>
         </tr>
     }
 </table>

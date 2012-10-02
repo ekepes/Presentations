@@ -1,4 +1,6 @@
-﻿namespace MicroORMs.Web.Models
+﻿using System;
+
+namespace MicroORMs.Web.Models
 {
     public class SalesSummaryReportLine
     {
@@ -9,5 +11,10 @@
         public int SalesMonth { get; set; }
 
         public decimal MonthlySales { get; set; }
+
+        public string ReportMonth
+        {
+            get { return DateTime.Parse(SalesMonth.ToString() + "/1/" + SalesYear.ToString()).ToString("MMM yyyy"); }
+        }
     }
 }
