@@ -1,0 +1,26 @@
+﻿@using MicroORMs.Web.Models
+@model IEnumerable<SalesSummaryReportLine>
+
+@{
+    ViewBag.Title = "Old Skool Data Access Sales Report";
+}
+
+<h2>Old Skool Data Access Sales Report</h2>
+
+<table>
+    <tr>
+        <td>State</td>
+        <td>Year</td>
+        <td>Month</td>
+        <td>Sales</td>
+    </tr>
+    @foreach(SalesSummaryReportLine reportLine in Model)
+    {
+        <tr>
+            <td>@reportLine.StateCode</td>
+            <td>@reportLine.SalesYear</td>
+            <td>@reportLine.SalesMonth</td>
+            <td>$@reportLine.MonthlySales</td>
+        </tr>
+    }
+</table>
