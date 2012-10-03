@@ -1,0 +1,6 @@
+Interesting Links:
+Ted Neward’s Vietnam - http://blogs.tedneward.com/2006/06/26/The+Vietnam+Of+Computer+Science.aspx
+O/R Impedance Mismatch - http://en.wikipedia.org/wiki/Object-Relational_impedance_mismatch
+When and why (Rotem-Gal-Oz) - http://www.rgoarchitects.com/Files/ormappin.pdf
+Orm Hate (Fowler) - http://martinfowler.com/bliki/OrmHate.html
+Choosing an ORM (Bogard) - http://lostechies.com/jimmybogard/2012/07/20/choosing-an-orm-strategy/
