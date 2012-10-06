@@ -18,8 +18,10 @@ namespace MicroORMs.Web.Controllers
         private IEnumerable<SalesSummaryReportLine> GetReportLines()
         {
             // Icky, ugly, crap - never put data access code in a controller (unless you're doing a demo)
-            Database database = new Database(ConnectionStrings.Main, "System.Data.SqlClient");
-            var reportLines = database.Fetch<SalesSummaryReportLine>(EmbeddedSql.OldSkoolQueryText);
+            var database = new Database(ConnectionStrings.Main, 
+                "System.Data.SqlClient");
+            var reportLines = database
+                .Fetch<SalesSummaryReportLine>(EmbeddedSql.OldSkoolQueryText);
             // var reportLines = database.Fetch<SalesSummaryReportLine>(EmbeddedSql.PetaPocoQueryText);
 
             return reportLines;

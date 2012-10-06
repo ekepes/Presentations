@@ -21,7 +21,8 @@ namespace MicroORMs.Web.Controllers
             // Icky, ugly, crap - never put data access code in a controller (unless you're doing a demo)
             using (var database = GetDatabase())
             {
-                var reportLines = database.Fetch<SalesReason>("SELECT * FROM Sales.SalesReason");
+                var reportLines = database
+                    .Fetch<SalesReason>("SELECT * FROM Sales.SalesReason");
 
                 return reportLines;
             }
@@ -37,7 +38,8 @@ namespace MicroORMs.Web.Controllers
             // Icky, ugly, crap - never put data access code in a controller (unless you're doing a demo)
             using (var database = GetDatabase())
             {
-                var reportLines = database.Single<SalesReason>("WHERE SalesReasonID=@0", id);
+                var reportLines = database
+                    .Single<SalesReason>("WHERE SalesReasonID=@0", id);
 
                 return reportLines;
             }

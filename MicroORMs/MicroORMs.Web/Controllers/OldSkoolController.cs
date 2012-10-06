@@ -22,19 +22,20 @@ namespace MicroORMs.Web.Controllers
             using (var connection = new SqlConnection(ConnectionStrings.Main))
             {
                 connection.Open();
-                using (var command = new SqlCommand(EmbeddedSql.OldSkoolQueryText, connection))
+                using (var command = 
+                    new SqlCommand(EmbeddedSql.OldSkoolQueryText, connection))
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             reportLines.Add(new SalesSummaryReportLine
-                                                {
-                                                    StateCode = reader.GetString(0),
-                                                    SalesYear = reader.GetInt32(1),
-                                                    SalesMonth = reader.GetInt32(2),
-                                                    MonthlySales = reader.GetDecimal(3)
-                                                });
+                                {
+                                    StateCode = reader.GetString(0),
+                                    SalesYear = reader.GetInt32(1),
+                                    SalesMonth = reader.GetInt32(2),
+                                    MonthlySales = reader.GetDecimal(3)
+                                });
                         }
                     }
                 }
