@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Demo 2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Demo 2</h2>
+
+<script type="text/javascript">
+    function register() {
+        var name = $("#eventName").val();
+
+        $("#result").text("Registering Event " + name + ".");
+        
+        $.getJSON("http://localhost:2225/FakeData/GetEvent",
+            { name: name },
+            function (data) {
+                $("#result").text('Event ' + data.Name + ' registered on ' + data.Date);
+            });
+    }
+</script>
+
+<input id="eventName" type="text"/>
+
+<input id="registerCommand" type="button" value="Register Event" 
+                    onclick="register()" />
+<p id="result"></p>

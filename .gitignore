@@ -18,6 +18,7 @@ _ReSharper*
 *.swp
 *.bak
 *.orig
+.DS_Store
 
 TestResult.xml
 submit.xml

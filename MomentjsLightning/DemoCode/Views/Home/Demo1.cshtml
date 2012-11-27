@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Demo1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Demo1</h2>
+
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        var dateString = "2012-10-01T10:00:00 -0900";
+        document.writeln(dateString);
+        document.writeln("<br/>");
+        var now = moment(dateString);
+        document.writeln(now.format("YYYY-MM-DD HH:mm:ss ZZ"));
+        document.writeln("<br/>");
+        document.writeln(now.format("YYYY-MM-DD HH:mm:ss"));
+    });
+</script>
