@@ -18,5 +18,10 @@ namespace DemoCode.Controllers
         {
             return View();
         }
+
+        public ActionResult Demo3()
+        {
+            return View();
+        }
     }
 }
