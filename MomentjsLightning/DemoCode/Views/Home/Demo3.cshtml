@@ -15,7 +15,8 @@
             { name: name },
             function (data) {
                 var now = moment(data.Date);
-                $("#result").text('Event ' + data.Name + ' registered on ' + now);
+                $("#result").text('Event ' + data.Name +
+                    ' registered on ' + now);
             });
     }
 </script>

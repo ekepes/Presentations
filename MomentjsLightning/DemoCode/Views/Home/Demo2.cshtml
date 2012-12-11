@@ -14,7 +14,8 @@
         $.getJSON("http://localhost:2225/FakeData/GetEvent",
             { name: name },
             function (data) {
-                $("#result").text('Event ' + data.Name + ' registered on ' + data.Date);
+                $("#result").text('Event ' + data.Name + 
+                    ' registered on ' + data.Date);
             });
     }
 </script>

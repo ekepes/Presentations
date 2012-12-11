@@ -8,11 +8,13 @@
 <script type="text/javascript" language="javascript">
     $(document).ready(function () {
         var dateString = "2012-10-01T10:00:00 -0900";
-        document.writeln(dateString);
+        document.writeln("As a string: " + dateString);
         document.writeln("<br/>");
         var now = moment(dateString);
-        document.writeln(now.format("YYYY-MM-DD HH:mm:ss ZZ"));
+        document.writeln("Show me the time zone: " + 
+            now.format("YYYY-MM-DD HH:mm:ss ZZ"));
         document.writeln("<br/>");
-        document.writeln(now.format("YYYY-MM-DD HH:mm:ss"));
+        document.writeln("Just the facts: " + 
+            now.format("YYYY-MM-DD HH:mm:ss"));
     });
 </script>
