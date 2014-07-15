@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading;
 using RabbitMQ.Client;
 
 namespace BackgroundWorker
@@ -22,6 +23,7 @@ namespace BackgroundWorker
 
                     var consumer = new QueueingBasicConsumer(channel);
                     channel.BasicConsume(QueueName, true, consumer);
+                    // channel.BasicQos(0, 1, false);
 
                     Console.WriteLine("Waiting for work - press <ctrl-c> to shut down...");
                     while (true)
@@ -33,6 +35,8 @@ namespace BackgroundWorker
 
                         int quantity = int.Parse(contents.Split(' ')[0]);
                         Console.WriteLine("Shipping {0} widgets.", quantity);
+                        // Thread.Sleep(quantity * 100);
+                        // Console.WriteLine("Shipped.");
                     }
                 }
             }

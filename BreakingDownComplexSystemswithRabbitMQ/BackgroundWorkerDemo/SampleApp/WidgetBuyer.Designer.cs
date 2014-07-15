@@ -18,6 +18,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Quantity = new System.Windows.Forms.TextBox();
             this.BuyWidgets = new System.Windows.Forms.Button();
+            this.SendBatches = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -47,11 +48,22 @@
             this.BuyWidgets.UseVisualStyleBackColor = true;
             this.BuyWidgets.Click += new System.EventHandler(this.BuyWidgets_Click);
             // 
+            // SendBatches
+            // 
+            this.SendBatches.Location = new System.Drawing.Point(32, 167);
+            this.SendBatches.Name = "SendBatches";
+            this.SendBatches.Size = new System.Drawing.Size(86, 23);
+            this.SendBatches.TabIndex = 3;
+            this.SendBatches.Text = "Send Batches";
+            this.SendBatches.UseVisualStyleBackColor = true;
+            this.SendBatches.Click += new System.EventHandler(this.SendBatches_Click);
+            // 
             // WidgetBuyer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.SendBatches);
             this.Controls.Add(this.BuyWidgets);
             this.Controls.Add(this.Quantity);
             this.Controls.Add(this.label1);
@@ -67,6 +79,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Quantity;
         private System.Windows.Forms.Button BuyWidgets;
+        private System.Windows.Forms.Button SendBatches;
     }
 }
 
