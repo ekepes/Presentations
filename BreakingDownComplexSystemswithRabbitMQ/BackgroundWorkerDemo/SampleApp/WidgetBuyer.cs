@@ -32,14 +32,5 @@ namespace SampleApp
 
             base.Dispose(disposing);
         }
-
-        private void SendBatches_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                _orderSender.SendOrder(1);
-                _orderSender.SendOrder(10);
-            }
-        }
     }
 }
