@@ -23,6 +23,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 5092,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -69,7 +77,9 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/eric/github/Presentations/SoYouWantToBeATechLead"
+		"/Users/eric/github/Presentations/SoYouWantToBeATechLead",
+		"/Users/eric/github/Presentations/SoYouWantToBeATechLead/css",
+		"/Users/eric/github/Presentations/SoYouWantToBeATechLead/css/theme/template"
 	],
 	"file_history":
 	[
@@ -104,7 +114,7 @@
 	],
 	"find":
 	{
-		"height": 33.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
@@ -141,8 +151,40 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5092,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2217,
+								2217
+							]
+						],
+						"settings":
+						{
+							"WordCountShouldRun": true,
+							"WordCountSyntax": "html",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1739.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
