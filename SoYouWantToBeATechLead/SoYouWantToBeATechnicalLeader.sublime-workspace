@@ -27,7 +27,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 5092,
+				"buffer_size": 5953,
 				"line_ending": "Unix"
 			}
 		}
@@ -79,7 +79,7 @@
 	[
 		"/Users/eric/github/Presentations/SoYouWantToBeATechLead",
 		"/Users/eric/github/Presentations/SoYouWantToBeATechLead/css",
-		"/Users/eric/github/Presentations/SoYouWantToBeATechLead/css/theme/template"
+		"/Users/eric/github/Presentations/SoYouWantToBeATechLead/images"
 	],
 	"file_history":
 	[
@@ -160,15 +160,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5092,
+						"buffer_size": 5953,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2217,
-								2217
+								3274,
+								3274
 							]
 						],
 						"settings":
@@ -179,7 +179,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1739.0,
+						"translation.y": 1818.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
